@@ -36,6 +36,7 @@ app.get('/', function (req, res) {
     res.send('Hola, está es la api de CANTIO')
 })
 app.use('/usuario/', require('./usuario/usuario.routes'))
+app.use('/canciones/', require('./canciones/canciones.routes'))
 
 //listen
 app.listen(app.get('port'), () => {
