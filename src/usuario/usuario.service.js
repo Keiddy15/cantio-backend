@@ -6,7 +6,7 @@ const usuarioService = {}
 
 usuarioService.buscarUsuarioPorCorreo = async (email) => { 
     const usuario = await pool.query(
-        "SELECT id, nombre, email FROM usuario WHERE email =?",
+        "SELECT id, nombre, email, rol FROM usuario WHERE email =?",
         email
     );
     return usuario

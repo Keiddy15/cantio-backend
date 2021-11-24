@@ -44,7 +44,7 @@ usuarioController.login = async (req, res) => {
             return res.status(403).json("Credenciales incorrectas")
         }
         const token = await usuarioService.crearToken(usuario[0].email)
-        res.status(200).json(token)
+        res.status(200).json({token, rol: usuario[0].rol})
     } catch (error) {
         return res.send(error)
     }
@@ -66,9 +66,7 @@ usuarioController.editarUsuario = async (req, res) => {
         if(req.body.contraseña) {
             req.body.contraseña = await usuarioService.encriptarContraseña(req.body.contraseña)
         }
-        console.log('we')
         const editarUsuario = await usuarioService.editarUsuario(req.body)
-        console.log(editarUsuario)
         res.status(200).json(editarUsuario)
     } catch (error) {
         res.send(error)
