@@ -38,6 +38,7 @@ app.get('/', function (req, res) {
 app.use('/usuario/', require('./usuario/usuario.routes'))
 app.use('/canciones/', require('./canciones/canciones.routes'))
 app.use('/promocion/', require('./promocion/promocion.routes'))
+app.use('/variables/', require('./variables/variables.routes'))
 
 //listen
 app.listen(app.get('port'), () => {

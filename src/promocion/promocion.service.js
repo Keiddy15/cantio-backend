@@ -37,7 +37,7 @@ promocionService.eliminarPromocion = async (id) => {
     }
 }
 
-promocionService.obtenerPromocion = async (id) => {
+promocionService.obtenerPromocion = async () => {
     try {
         const obtenerPromocion = await pool.query(
             `SELECT * FROM promociones`
