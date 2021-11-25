@@ -48,4 +48,15 @@ promocionService.obtenerPromocion = async () => {
     }
 }
 
+promocionService.existeCodigo = async (codigoPromocional) => {
+    try {
+        const existeCodigo = await pool.query(
+            `SELECT codigoPromocional FROM promociones WHERE codigoPromocional = '${codigoPromocional}'`
+        )
+        return existeCodigo
+    } catch (error) {
+        return error
+    }
+}
+
 module.exports = promocionService;

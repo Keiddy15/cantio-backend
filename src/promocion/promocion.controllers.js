@@ -1,10 +1,13 @@
 const promocionService = require('./promocion.service')
-const jwt = require("jsonwebtoken")
 
 const promocionController = {}
 
 promocionController.crearPromocion = async (req, res) =>  {
     try {
+        const existeCodigo = await promocionService.existeCodigo(req.body.codigoPromocional)
+        if(existeCodigo.length > 0) {
+            return res.status(404).json('Ya este código exite')
+        }
         const crearPromocion = await promocionService.crearPromocion(req.body)
         return res.status(200).json('Código de promoción creado')
     } catch (error) {
