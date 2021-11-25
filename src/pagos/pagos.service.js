@@ -18,7 +18,7 @@ pagosService.guardarInformacionPago = async (pago) => {
             cusPSE: pago.cus,
             idTransaccion: pago.account_number_ach,
             fechaOperacion: pago.date,
-            nombreVendedor: pago.nickname_buyer
+            nombreComprador: pago.nickname_buyer
         }
         const guardarPago = await pool.query(
             'INSERT INTO pagos SET ?',
