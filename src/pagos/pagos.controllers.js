@@ -6,7 +6,8 @@ const pagosController = {}
 
 pagosController.guardarInformacionPago = async (req, res) => {
     try {
-        const guardarInformacionPago = await pagossService.guardarInformacionPago(req.boddy)
+        const guardarInformacionPago = await pagossService.guardarInformacionPago(req.body)
+        console.log(guardarInformacionPago)
         res.status(200).json('Información de pago guardada')
     } catch (error) {
         console.log(error)
