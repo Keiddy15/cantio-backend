@@ -12,7 +12,7 @@ pagosService.guardarInformacionPago = async (pago) => {
             descripcion: pago.extra1,
             metodoPago: pago.payment_method,
             valor: pago.value,
-            fechaTransacion: pago.transaction_date,
+            fechaTransaccion: pago.transaction_date,
             moneda: pago.currency,
             emailComprador: pago.email_buyer,
             cusPSE: pago.cus,
