@@ -22,7 +22,6 @@ usuarioController.registro = async (req, res) =>  {
         try {
             const nuevoUsuario =  await usuarioService.crearUsuario(usuario)
             const token = await usuarioService.crearToken(usuario.email)
-            console.log(token)
             res.status(200)
             .json(token);
         } catch (error) {
