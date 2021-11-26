@@ -41,4 +41,15 @@ pagosService.estadoPago = async (estado) => {
         return error
     }
 }
+
+pagosService.obtenerIdUltimoPago = async () => {
+    try {
+        const obtenerIdUltimoPago = await pool.query(
+            'SELECT MAX(id) FROM chimbast1_cantio.pagos;'
+        )
+        return obtenerIdUltimoPago
+    } catch (error) {
+        return error
+    }
+}
 module.exports = pagosService;
