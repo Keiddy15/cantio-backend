@@ -30,4 +30,15 @@ pagosService.guardarInformacionPago = async (pago) => {
     }
 }
 
+pagosService.estadoPago = async (estado) => {
+    try {
+        if (estado == 4) {
+            return true
+        }else if (estado == 6) {
+            return false
+        }
+    } catch (error) {
+        return error
+    }
+}
 module.exports = pagosService;
