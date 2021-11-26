@@ -84,4 +84,13 @@ pagosController.guardarInformacionPago = async (req, res) => {
     }
 }
 
+pagosController.obtenerIdUltimoPago = async (req, res) =>  {
+    try {
+        const obtenerIdUltimoPago = await pagosService.obtenerIdUltimoPago()
+        res.status(200).json(obtenerIdUltimoPago[0]['MAX(id)'])
+    } catch (error) {
+        return res.send(error)
+    }
+}
+
 module.exports = pagosController
