@@ -6,6 +6,7 @@ const pagosController = {}
 
 pagosController.guardarInformacionPago = async (req, res) => {
     try {
+        console.log(req.body)
         //Guardando información del pago
         const guardarInformacionPago = await pagosService.guardarInformacionPago(req.body)
         
@@ -16,7 +17,7 @@ pagosController.guardarInformacionPago = async (req, res) => {
             //Estado aprobado
 
             //Creando constante para traer la descripción de la compra
-            const descripcionCompra = JSON.parse(req.body.extra1.desc)
+            const descripcionCompra = JSON.stringify(req.body.extra1.desc)
 
             //Creando constante para tener el correo del comprador
             const emailComprador = req.body.buyerEmail
