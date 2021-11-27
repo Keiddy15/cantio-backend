@@ -1,5 +1,4 @@
 const cancionesService = require('./canciones.service')
-const jwt = require("jsonwebtoken")
 const request = require("request");
 
 const cancionesController = {}
@@ -36,6 +35,15 @@ cancionesController.reproducirCancion = async (req, res) =>  {
         });
     } catch (error) {
         res.send(error)
+    }
+}
+
+cancionesController.obtenerUsuariosCancionesPorId = async (req, res) =>  {
+    try {
+        const canciones = await cancionesService.obtenerUsuariosCancionesPorId(req.params.id)
+        return res.status(200).json(canciones)
+    } catch (error) {
+        return res.send(error)
     }
 }
 
