@@ -20,8 +20,8 @@ pagosController.guardarInformacionPago = async (req, res) => {
             const descripcionCompra = JSON.parse(req.body.extra1).desc
 
             //Creando constante para tener el correo del comprador
-            const emailComprador = req.body.buyerEmail
-
+            const emailComprador = req.body.email_buyer
+            console.log(emailComprador)
             //Si el correo del producto viene null, haciendo un mapeo para colocar el correo del comprador
             const emailCanciones = descripcionCompra.map(item =>{
                 let email = item.e == null ? emailComprador:item.e
