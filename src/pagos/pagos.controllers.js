@@ -34,6 +34,7 @@ pagosController.guardarInformacionPago = async (req, res) => {
             //Validar si el correo existe en la BD
 
             for (const element of emailCanciones) {
+                console.log(element.e)
                 correo = await usuarioService.buscarUsuarioPorCorreo(element.e)
                 if (correo.length > 0) {
                     //INSERT en la tabla que relaciona a los usuarios con las canciones que tiene
