@@ -27,15 +27,14 @@ pagosController.guardarInformacionPago = async (req, res) => {
                 let email = item.e == null ? emailComprador:item.e
                 return { n:item.n, c:item.c, e:email }
             })
-            
-            //Creando variable para saber si el correo existe
-            let correo = ''
+            console.log(emailCanciones)
 
             //Validar si el correo existe en la BD
 
             for (const element of emailCanciones) {
-                console.log(element.e)
-                correo = await usuarioService.buscarUsuarioPorCorreo(element.e)
+                console.log(element)
+                //Creando variable para saber si el correo existe
+                const correo = await usuarioService.buscarUsuarioPorCorreo(element.e)
                 if (correo.length > 0) {
                     //INSERT en la tabla que relaciona a los usuarios con las canciones que tiene
                     const canciones = {
