@@ -25,4 +25,17 @@ cancionesService.usuariosCanciones = async (canciones) => {
     }
 }
 
+cancionesService.obtenerUsuariosCancionesPorId = async (id) => {
+    try {
+        const canciones = await pool.query(
+            'SELECT * FROM usuarioCanciones WHERE idUsuario = ?',
+            id
+        )
+        return canciones
+    } catch (error) {
+        return error
+    }
+}
+
+
 module.exports = cancionesService;
