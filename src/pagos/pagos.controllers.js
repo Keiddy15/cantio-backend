@@ -21,13 +21,12 @@ pagosController.guardarInformacionPago = async (req, res) => {
 
             //Creando constante para tener el correo del comprador
             const emailComprador = req.body.email_buyer
-            console.log(emailComprador)
+            console.log('email comprador: ', emailComprador)
             //Si el correo del producto viene null, haciendo un mapeo para colocar el correo del comprador
             const emailCanciones = descripcionCompra.map(item =>{
                 let email = item.e == null ? emailComprador:item.e
-                return { n:item.n, c:item.c, e:email }
+                return { n:item.n, c:item.c, e:email, t: item.t }
             })
-            console.log(emailCanciones)
 
             //Validar si el correo existe en la BD
 
@@ -43,9 +42,15 @@ pagosController.guardarInformacionPago = async (req, res) => {
                         cancion: element.c == null ? 'ALBUM' : element.c
                     }
                     const usuarioCanciones = await cancionesService.usuariosCanciones(canciones)
-
-                    //Enviar correo con el paso a seguir
-                    console.log('Enviando correo')
+                    
+                    if(element.t === 'R') {
+                        //Enviar correo con el paso a seguir
+                        console.log('Enviando correo de regalo')
+                    }else if (element.t === 'H') {
+                        //Enviar correo con el paso a seguir
+                        console.log('Enviando correo para hijo')
+                    }
+                    
 
                 } else {
                     //Crear un usuario
@@ -69,8 +74,13 @@ pagosController.guardarInformacionPago = async (req, res) => {
                     }
                     const usuarioCanciones = await cancionesService.usuariosCanciones(canciones)
 
-                    //Enviar correo con el paso a seguir
-                    console.log('Enviando correo')
+                    if(element.t === 'R') {
+                        //Enviar correo con el paso a seguir
+                        console.log('Enviando correo de regalo')
+                    }else if (element.t === 'H') {
+                        //Enviar correo con el paso a seguir
+                        console.log('Enviando correo para hijo')
+                    }
                 }
             }
             res.status(200).json('Proceso finalizado')
