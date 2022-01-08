@@ -45,7 +45,7 @@ pagosService.estadoPago = async (estado) => {
 pagosService.obtenerIdUltimoPago = async () => {
     try {
         const obtenerIdUltimoPago = await pool.query(
-            'SELECT MAX(id) FROM chimbast1_cantio.pagos;'
+            'SELECT MAX(id) FROM pagos;'
         )
         return obtenerIdUltimoPago
     } catch (error) {
