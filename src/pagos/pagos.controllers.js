@@ -49,7 +49,7 @@ pagosController.guardarInformacionPago = async (req, res) => {
 
                 } else {
                     //Crear un usuario
-                    const pass = Math. random().toString(36).slice(-8);
+                    const pass = Math.random().toString(36).slice(-8);
                     const encriptarContraseña = await usuarioService.encriptarContraseña(pass)
                     const usuario = {
                         nombre: element.e,
