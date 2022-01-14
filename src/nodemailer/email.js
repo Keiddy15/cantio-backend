@@ -38,8 +38,8 @@ email.correoConfirmacionPago = (email, pass) => {
                                     <p style="color: #fff; text-align:center; font-size: 20px;">
                                         Si ya tienes una cuenta ingresa con tus datos. <br>
                                         Si no utiliza los siguientes datos para iniciar sesión: <br>
-                                        email: <a href="" style="font-family:Arial,sans-serif;color: #fff; text-decoration: none;">${email}</a><br>
-                                        pass: ${pass} <br>
+                                        Correo: <a href="" style="font-family:Arial,sans-serif;color: #fff; text-decoration: none;">${email}</a><br>
+                                        Contraseña: ${pass} <br>
                                     </p>
                                 </td>
                             </tr>
