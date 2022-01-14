@@ -27,7 +27,7 @@ pagosController.guardarInformacionPago = async (req, res) => {
             const validarExistenciaUsuario = await usuarioService.buscarUsuarioPorCorreo(emailComprador)
 
             let idUsuario;
-            let pass;
+            let pass = "";
 
             if (validarExistenciaUsuario.length > 0) {
                 idUsuario = validarExistenciaUsuario[0].id
