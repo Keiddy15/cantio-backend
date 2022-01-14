@@ -1,7 +1,7 @@
 const email = {}
 
 email.correoConfirmaciónPago = (email, pass) => {
-    const email = `
+    const emailHTML = `
         <!doctype html>
         <html ⚡4email data-css-strict>
         <head>
@@ -918,4 +918,5 @@ email.correoConfirmaciónPago = (email, pass) => {
         
         </html>
     `
+    return emailHTML;
 }
