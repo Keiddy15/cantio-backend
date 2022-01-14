@@ -711,10 +711,10 @@ email.correoConfirmacionPago = (email, pass) => {
                                                                         <td class="es-p10t es-p10r es-p10l" align="center"><span
                                                                                 class="es-button-border"
                                                                                 style="background: #ffbd25;border-radius: 38px"><a
-                                                                                    href="https://cantio.netlify.com/"
+                                                                                    href="https://cantio.co/"
                                                                                     class="es-button es-button-1"
                                                                                     target="_blank"
-                                                                                    style="background: #ffbd25;border-color: #ffbd25;border-radius: 38px;border-width: 15px; padding: 2rem; text-decoration: none !important;">IR
+                                                                                    style="background: #ffbd25;border-color: #ffbd25;border-radius: 38px;border-width: 15px; padding: 1rem; text-decoration: none !important; color: #ffbd25!important;">IR
                                                                                     A CANTÍO</a></span>
                                                                                 </td>
                                                                     </tr>
