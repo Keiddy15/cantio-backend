@@ -652,52 +652,6 @@ email.correoConfirmacionPago = (email, pass) => {
                 <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0">
                     <tr>
                         <td valign="top">
-                            <table cellpadding="0" cellspacing="0" class="es-content" align="center">
-                                <tr>
-                                    <td class="es-adaptive" align="center">
-                                        <table class="es-content-body" style="background-color: transparent" width="600"
-                                            cellspacing="0" cellpadding="0" align="center">
-                                            <tr>
-                                                <td class="es-p10" align="left">
-                                                    <!--[if mso]><table width="580"><tr><td width="280" valign="top"><![endif]-->
-                                                    <table class="es-left" cellspacing="0" cellpadding="0" align="left">
-                                                        <tr>
-                                                            <td width="280" align="left">
-                                                                <table width="100%" cellspacing="0" cellpadding="0"
-                                                                    role="presentation">
-                                                                    <tr>
-                                                                        <td class="es-infoblock es-m-txt-c" align="left">
-                                                                            <p>Put your preheader text here</p>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <!--[if mso]></td><td width="20"></td><td width="280" valign="top"><![endif]-->
-                                                    <table class="es-right" cellspacing="0" cellpadding="0" align="right">
-                                                        <tr>
-                                                            <td width="280" align="left">
-                                                                <table width="100%" cellspacing="0" cellpadding="0"
-                                                                    role="presentation">
-                                                                    <tr>
-                                                                        <td align="right" class="es-infoblock es-m-txt-c">
-                                                                            <p><a href="https://viewstripo.email"
-                                                                                    target="_blank" class="view">View in
-                                                                                    browser</a></p>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <!--[if mso]></td></tr></table><![endif]-->
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
                             <table class="es-content" cellspacing="0" cellpadding="0" align="center">
                                 <tr>
                                     <td align="center">
@@ -708,22 +662,7 @@ email.correoConfirmacionPago = (email, pass) => {
                                                     <table width="100%" cellspacing="0" cellpadding="0">
                                                         <tr>
                                                             <td class="es-m-p20b" width="600" valign="top" align="center">
-                                                                <table width="100%" cellspacing="0" cellpadding="0"
-                                                                    role="presentation">
-                                                                    <tr>
-                                                                        <td class="es-p5t" align="center"
-                                                                            style="font-size: 0px"><a target="_blank"
-                                                                                href="https://viewstripo.email">
-                                                                                <amp-img class="adapt-img"
-                                                                                    src="https://ljnlln.stripocdn.email/content/guids/CABINET_6504dbdad7218f39814ebc2d2809d700/images/56891530702705413.png"
-                                                                                    alt="Your order is on its way"
-                                                                                    style="display: block"
-                                                                                    title="Your order is on its way"
-                                                                                    height="100" width="224"
-                                                                                    layout="responsive"></amp-img>
-                                                                            </a></td>
-                                                                    </tr>
-                                                                </table>
+        
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -745,8 +684,8 @@ email.correoConfirmacionPago = (email, pass) => {
                                                                                 Hola, la música ha llegado.<br>
                                                                                 Si ya tienes una cuenta ingresa con tus datos. <br>
                                                                                 Si no utiliza los siguientes datos para iniciar sesión:<br>
-                                                                                email: ${email}<br>
-                                                                                pass: ${pass} <br>
+                                                                                email: <span style="color: white !important; text-decoration: none !important;">${email}</span><br>
+                                                                                pass: ${contraseña} <br>
                                                                                 
                                                                             </p> 
                                                                         </td>
@@ -760,7 +699,7 @@ email.correoConfirmacionPago = (email, pass) => {
                                                                     <tr>
                                                                         <td class="es-p5t es-p15b" align="center">
                                                                             <p style="color: #333333;font-size: 16px">1. Ir a
-                                                                                cantio.com<br>2. Inicia sesión con tus
+                                                                                <span style="color: #333333 !important; text-decoration: none !important;">cantio.co</span><br>2. Inicia sesión con tus
                                                                                 credenciales.<br>3.&nbsp;En la parte superior
                                                                                 dale click donde sale tu nombre.<br>4.&nbsp;Ahí
                                                                                 encontraras una pestaña llamada canciones,
@@ -772,11 +711,12 @@ email.correoConfirmacionPago = (email, pass) => {
                                                                         <td class="es-p10t es-p10r es-p10l" align="center"><span
                                                                                 class="es-button-border"
                                                                                 style="background: #ffbd25;border-radius: 38px"><a
-                                                                                    href="https://viewstripo.email"
+                                                                                    href="https://cantio.netlify.com/"
                                                                                     class="es-button es-button-1"
                                                                                     target="_blank"
-                                                                                    style="background: #ffbd25;border-color: #ffbd25;border-radius: 38px;border-width: 15px">IR
-                                                                                    A CANTÍO</a></span></td>
+                                                                                    style="background: #ffbd25;border-color: #ffbd25;border-radius: 38px;border-width: 15px; padding: 2rem; text-decoration: none !important;">IR
+                                                                                    A CANTÍO</a></span>
+                                                                                </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td class="es-p5t es-p15b" align="center">
