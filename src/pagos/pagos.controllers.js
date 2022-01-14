@@ -1,6 +1,7 @@
 const pagosService = require('./pagos.service')
 const cancionesService = require('../canciones/canciones.service')
 const usuarioService = require('../usuario/usuario.service')
+const nodemailerService = require('../nodemailer/nodemailer.service')
 
 const pagosController = {}
 
@@ -22,67 +23,41 @@ pagosController.guardarInformacionPago = async (req, res) => {
             //Creando constante para tener el correo del comprador
             const emailComprador = req.body.email_buyer
             console.log('email comprador: ', emailComprador)
-            //Si el correo del producto viene null, haciendo un mapeo para colocar el correo del comprador
-            const emailCanciones = descripcionCompra.map(item =>{
-                let email = item.e == null ? emailComprador:item.e
-                return { n:item.n, c:item.c, e:email, t: item.t }
-            })
 
-            //Validar si el correo existe en la BD
+            const validarExistenciaUsuario = await usuarioService.buscarUsuarioPorCorreo(emailComprador)
 
-            for (const element of emailCanciones) {
-                console.log(element)
-                //Creando variable para saber si el correo existe
-                const correo = await usuarioService.buscarUsuarioPorCorreo(element.e)
-                if (correo.length > 0) {
-                    //INSERT en la tabla que relaciona a los usuarios con las canciones que tiene
-                    const canciones = {
-                        idUsuario: correo[0].id,
-                        nombre: element.n,
-                        cancion: element.c == null ? 'ALBUM' : element.c
-                    }
-                    const usuarioCanciones = await cancionesService.usuariosCanciones(canciones)
-                    
-                    if(element.t === 'R') {
-                        //Enviar correo con el paso a seguir
-                        console.log('Enviando correo de regalo')
-                    }else if (element.t === 'H') {
-                        //Enviar correo con el paso a seguir
-                        console.log('Enviando correo para hijo')
-                    }
-                    
+            let idUsuario;
 
-                } else {
-                    //Crear un usuario
-                    const pass = Math.random().toString(36).slice(-8);
-                    const encriptarContraseña = await usuarioService.encriptarContraseña(pass)
-                    const usuario = {
-                        nombre: element.e,
-                        email: element.e,
-                        contraseña: encriptarContraseña
-                    }
-                    const nuevoUsuario =  await usuarioService.crearUsuario(usuario)
-
-                    //Buscar usuario creado para obtener el id
-                    const nuevoUsuarioID = await usuarioService.buscarUsuarioPorCorreo(element.e)
-
-                    //INSERT en la tabla que relaciona a los usuarios con las canciones que tiene
-                    const canciones = {
-                        idUsuario: nuevoUsuarioID[0].id,
-                        nombre: element.n,
-                        cancion: element.c == null ? 'ALBUM' : element.c
-                    }
-                    const usuarioCanciones = await cancionesService.usuariosCanciones(canciones)
-
-                    if(element.t === 'R') {
-                        //Enviar correo con el paso a seguir
-                        console.log('Enviando correo de regalo')
-                    }else if (element.t === 'H') {
-                        //Enviar correo con el paso a seguir
-                        console.log('Enviando correo para hijo')
-                    }
+            if (validarExistenciaUsuario.length > 0) {
+                idUsuario = validarExistenciaUsuario[0].id
+            }else {
+                //Crear un usuario
+                const pass = Math.random().toString(36).slice(-8);
+                const encriptarContrasena = await usuarioService.encriptarContraseña(pass)
+                const usuario = {
+                    nombre: emailComprador,
+                    email: emailComprador,
+                    contrasena: encriptarContrasena
+                }
+                const nuevoUsuario =  await usuarioService.crearUsuario(usuario)
+                const nuevoUsuarioID = await usuarioService.buscarUsuarioPorCorreo(emailComprador)
+                idUsuario = nuevoUsuarioID[0].id
+            }
+            
+            for (const key in descripcionCompra) {
+                let canciones = {
+                    idUsuario: idUsuario[0].id,
+                    nombre: key.n,
+                    cancion: key.c == null ? 'ALBUM' : key.c
+                }
+                if(key.t == 'R') {
+                    canciones.estado = false
+                }else {
+                    canciones.estado = true
                 }
             }
+            //Enviando correo
+            console.log("enviando correo")
             res.status(200).json('Proceso finalizado')
         } else {
             //Estado declinado
