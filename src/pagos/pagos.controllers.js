@@ -46,7 +46,7 @@ pagosController.guardarInformacionPago = async (req, res) => {
             
             console.log("idUsuario: ", idUsuario)
             for (const key in descripcionCompra) {
-                console.log(key)
+                console.log(key, "KEUY")
                 let canciones = {
                     idUsuario: idUsuario,
                     nombre: key.n,
@@ -57,7 +57,6 @@ pagosController.guardarInformacionPago = async (req, res) => {
                 }else {
                     canciones.estado = true
                 }
-                console.log(canciones)
                 const cancionesUsuario = await cancionesService.usuariosCanciones(canciones)
             }
             //Enviando correo
