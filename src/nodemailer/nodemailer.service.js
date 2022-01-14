@@ -3,13 +3,13 @@ const email = require('./email')
 
 const nodemailerService = {}
 
-nodemailerService.correoConfirmacionPago = async (email, pass) => {
+nodemailerService.correoConfirmacionPago = async (emailUsuario, pass) => {
     try {
         await transporter.sendMail({
             from: '"Cantío" <infocantio@gmail.com>',
-            to: email,
+            to: emailUsuario,
             subject: "Ha llegado la música",
-            html: email.correoConfirmacionPago(email, pass)
+            html: email.correoConfirmacionPago(emailUsuario, pass)
         })
     } catch (error) {
         console.log(error)
