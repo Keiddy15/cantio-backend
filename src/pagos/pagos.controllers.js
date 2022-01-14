@@ -1,7 +1,7 @@
 const pagosService = require('./pagos.service')
 const cancionesService = require('../canciones/canciones.service')
 const usuarioService = require('../usuario/usuario.service')
-//const nodemailerService = require('../nodemailer/nodemailer.service')
+const nodemailerService = require('../nodemailer/nodemailer.service')
 
 const pagosController = {}
 
@@ -27,12 +27,13 @@ pagosController.guardarInformacionPago = async (req, res) => {
             const validarExistenciaUsuario = await usuarioService.buscarUsuarioPorCorreo(emailComprador)
 
             let idUsuario;
+            let pass;
 
             if (validarExistenciaUsuario.length > 0) {
                 idUsuario = validarExistenciaUsuario[0].id
             }else {
                 //Crear un usuario
-                const pass = Math.random().toString(36).slice(-8);
+                pass = Math.random().toString(36).slice(-8);
                 const encriptarContraseña = await usuarioService.encriptarContraseña(pass)
                 const usuario = {
                     nombre: emailComprador,
@@ -44,16 +45,13 @@ pagosController.guardarInformacionPago = async (req, res) => {
                 idUsuario = nuevoUsuarioID[0].id
             }
             
-            console.log("idUsuario: ", idUsuario)
             for (const key in descripcionCompra) {
                 let e = descripcionCompra[key]
-                console.log(descripcionCompra[key], "KEUY")
                 let canciones = {
                     idUsuario: idUsuario,
                     nombre: e.n,
                     cancion: e.c == null ? 'ALBUM' : e.c
                 }
-                console.log(e.t)
                 if(e.t == 'R') {
                     canciones.estado = false
                 }else {
@@ -63,6 +61,7 @@ pagosController.guardarInformacionPago = async (req, res) => {
             }
             //Enviando correo
             console.log("enviando correo")
+            await nodemailerService.correoConfirmaciónPago(emailComprador, pass)
             res.status(200).json('Proceso finalizado')
         } else {
             //Estado declinado
