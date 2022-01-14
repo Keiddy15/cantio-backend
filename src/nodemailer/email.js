@@ -38,7 +38,7 @@ email.correoConfirmacionPago = (email, pass) => {
                                     <p style="color: #fff; text-align:center; font-size: 20px;">
                                         Si ya tienes una cuenta ingresa con tus datos. <br>
                                         Si no utiliza los siguientes datos para iniciar sesión: <br>
-                                        email: ${email} <br>
+                                        email: <a href="" style="font-family:Arial,sans-serif;color: #fff; text-decoration: none;">${email}</a><br>
                                         pass: ${pass} <br>
                                     </p>
                                 </td>
@@ -52,7 +52,7 @@ email.correoConfirmacionPago = (email, pass) => {
                                                     PASOS A SEGUIR:
                                                 </h1>
                                                 <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">
-                                                    1. Ir a cantio.co <br>
+                                                    1. Ir a <a href="https://cantio.co" style="font-family:Arial,sans-serif;color: #fff; text-decoration: none;">cantio.co</a> <br>
                                                     2. Inicia sesión con tus credenciales. <br>
                                                     3. En la parte superior dale click donde sale tu nombre. <br>
                                                     4. Ahí encontraras una pestaña llamada canciones, dirigite a ella y encontraras las canciones previamente compradas. <br>
@@ -88,6 +88,10 @@ email.correoConfirmacionPago = (email, pass) => {
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
                                                                     </table>
                                                                 </td>
                                                             </tr>
@@ -99,10 +103,6 @@ email.correoConfirmacionPago = (email, pass) => {
                                     </table>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
                         </table>
                     </td>
                 </tr>
