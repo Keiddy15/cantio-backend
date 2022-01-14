@@ -685,7 +685,7 @@ email.correoConfirmacionPago = (email, pass) => {
                                                                                 Si ya tienes una cuenta ingresa con tus datos. <br>
                                                                                 Si no utiliza los siguientes datos para iniciar sesión:<br>
                                                                                 email: <span style="color: white !important; text-decoration: none !important;">${email}</span><br>
-                                                                                pass: ${contraseña} <br>
+                                                                                pass: ${pass} <br>
                                                                                 
                                                                             </p> 
                                                                         </td>
