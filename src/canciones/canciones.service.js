@@ -28,7 +28,7 @@ cancionesService.usuariosCanciones = async (canciones) => {
 cancionesService.obtenerUsuariosCancionesPorId = async (id) => {
     try {
         const canciones = await pool.query(
-            'SELECT * FROM usuarioCanciones WHERE idUsuario = ?',
+            `SELECT * FROM usuarioCanciones WHERE idUsuario = ? AND estado = ${true}`,
             id
         )
         return canciones
