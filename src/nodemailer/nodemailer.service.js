@@ -12,6 +12,7 @@ nodemailerService.correoConfirmaciónPago = async (email, pass) => {
             html: email.correoConfirmaciónPago(email, pass)
         })
     } catch (error) {
+        console.log(error)
         return error
     }
 }
