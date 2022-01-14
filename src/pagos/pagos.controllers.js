@@ -33,11 +33,11 @@ pagosController.guardarInformacionPago = async (req, res) => {
             }else {
                 //Crear un usuario
                 const pass = Math.random().toString(36).slice(-8);
-                const encriptarContrasena = await usuarioService.encriptarContraseña(pass)
+                const encriptarContraseña = await usuarioService.encriptarContraseña(pass)
                 const usuario = {
                     nombre: emailComprador,
                     email: emailComprador,
-                    contrasena: encriptarContrasena
+                    contraseña: encriptarContraseña
                 }
                 const nuevoUsuario =  await usuarioService.crearUsuario(usuario)
                 const nuevoUsuarioID = await usuarioService.buscarUsuarioPorCorreo(emailComprador)
