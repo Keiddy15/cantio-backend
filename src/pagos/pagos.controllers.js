@@ -1,7 +1,7 @@
 const pagosService = require('./pagos.service')
 const cancionesService = require('../canciones/canciones.service')
 const usuarioService = require('../usuario/usuario.service')
-const nodemailerService = require('../nodemailer/nodemailer.service')
+//const nodemailerService = require('../nodemailer/nodemailer.service')
 
 const pagosController = {}
 
@@ -55,6 +55,7 @@ pagosController.guardarInformacionPago = async (req, res) => {
                 }else {
                     canciones.estado = true
                 }
+                const cancionesUsuario = await usuarioService.usuariosCanciones(canciones)
             }
             //Enviando correo
             console.log("enviando correo")
