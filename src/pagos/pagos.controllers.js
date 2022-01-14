@@ -53,7 +53,8 @@ pagosController.guardarInformacionPago = async (req, res) => {
                     nombre: e.n,
                     cancion: e.c == null ? 'ALBUM' : e.c
                 }
-                if(encodeURI.t == 'R') {
+                console.log(e.t)
+                if(e.t == 'R') {
                     canciones.estado = false
                 }else {
                     canciones.estado = true
