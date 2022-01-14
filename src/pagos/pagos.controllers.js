@@ -56,6 +56,7 @@ pagosController.guardarInformacionPago = async (req, res) => {
                 }else {
                     canciones.estado = true
                 }
+                console.log(canciones)
                 const cancionesUsuario = await cancionesService.usuariosCanciones(canciones)
             }
             //Enviando correo
