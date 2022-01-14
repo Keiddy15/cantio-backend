@@ -47,4 +47,13 @@ cancionesController.obtenerUsuariosCancionesPorId = async (req, res) =>  {
     }
 }
 
+cancionesController.obtenerUsuariosCancionesParaRegalarPorId = async (req, res) =>  {
+    try {
+        const canciones = await cancionesService.obtenerUsuariosCancionesParaRegalarPorId(req.params.id)
+        return res.status(200).json(canciones)
+    } catch (error) {
+        return res.send(error)
+    }
+}
+
 module.exports = cancionesController;
