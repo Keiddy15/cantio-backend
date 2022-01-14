@@ -46,7 +46,7 @@ pagosController.guardarInformacionPago = async (req, res) => {
             
             console.log("idUsuario: ", idUsuario)
             for (const key in descripcionCompra) {
-                console.log(key, "KEUY")
+                console.log(descripcionCompra[key], "KEUY")
                 let canciones = {
                     idUsuario: idUsuario,
                     nombre: key.n,
