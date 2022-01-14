@@ -5,6 +5,7 @@ const db = require('../database');
 
 router.get('/obtenerNombres', cancionesController.obtenerNombres);
 router.get('/obtenerCanciones/:id', cancionesController.obtenerUsuariosCancionesPorId);
+router.get('/obtenerCancionesParaRegalar/:id', cancionesController.obtenerUsuariosCancionesParaRegalarPorId);
 router.post('/reproducirCanciones', cancionesController.reproducirCancion);
 
 
