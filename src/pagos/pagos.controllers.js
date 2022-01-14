@@ -61,7 +61,7 @@ pagosController.guardarInformacionPago = async (req, res) => {
             }
             //Enviando correo
             console.log("enviando correo")
-            const x = await nodemailerService.correoConfirmaciónPago(emailComprador, pass)
+            const x = await nodemailerService.correoConfirmacionPago(emailComprador, pass)
             console.log(x)
             res.status(200).json('Proceso finalizado')
         } else {
