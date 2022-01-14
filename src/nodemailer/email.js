@@ -1,6 +1,6 @@
 const email = {}
 
-email.correoConfirmaciónPago = (email, pass) => {
+email.correoConfirmacionPago = (email, pass) => {
     const emailHTML = `
         <!doctype html>
         <html ⚡4email data-css-strict>
@@ -920,3 +920,5 @@ email.correoConfirmaciónPago = (email, pass) => {
     `
     return emailHTML;
 }
+
+module.exports = email
