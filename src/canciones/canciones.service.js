@@ -37,5 +37,17 @@ cancionesService.obtenerUsuariosCancionesPorId = async (id) => {
     }
 }
 
+cancionesService.obtenerUsuariosCancionesParaRegalarPorId = async (id) => {
+    try {
+        const canciones = await pool.query(
+            `SELECT * FROM usuarioCanciones WHERE idUsuario = ? AND estado = ${false}`,
+            id
+        )
+        return canciones
+    } catch (error) {
+        return error
+    }
+}
+
 
 module.exports = cancionesService;
