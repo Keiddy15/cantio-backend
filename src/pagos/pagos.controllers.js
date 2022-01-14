@@ -46,13 +46,14 @@ pagosController.guardarInformacionPago = async (req, res) => {
             
             console.log("idUsuario: ", idUsuario)
             for (const key in descripcionCompra) {
+                let e = descripcionCompra[key]
                 console.log(descripcionCompra[key], "KEUY")
                 let canciones = {
                     idUsuario: idUsuario,
-                    nombre: key.n,
-                    cancion: key.c == null ? 'ALBUM' : key.c
+                    nombre: e.n,
+                    cancion: e.c == null ? 'ALBUM' : e.c
                 }
-                if(key.t == 'R') {
+                if(encodeURI.t == 'R') {
                     canciones.estado = false
                 }else {
                     canciones.estado = true
