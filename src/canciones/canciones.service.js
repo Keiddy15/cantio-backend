@@ -50,4 +50,16 @@ cancionesService.obtenerUsuariosCancionesParaRegalarPorId = async (id) => {
 }
 
 
+cancionesService.editarCancionRegalo = async (cancion) => {
+    try {
+        const editarPromocion = await pool.query(
+            `UPDATE usuarioCanciones SET ?  WHERE idCancion = ${cancion.idCancion}`, 
+            cancion
+        )
+        return editarPromocion
+    } catch (error) {
+        return error
+    }
+},
+
 module.exports = cancionesService;
