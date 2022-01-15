@@ -5,7 +5,6 @@ const jwt = require("jsonwebtoken")
 const usuarioService = {}
 
 usuarioService.buscarUsuarioPorCorreo = async (email) => { 
-    console.log(email)
     const usuario = await pool.query(
         "SELECT id, nombre, email, rol FROM usuario WHERE email =?",
         email
