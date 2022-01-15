@@ -7,7 +7,6 @@ const pagosController = {}
 
 pagosController.guardarInformacionPago = async (req, res) => {
     try {
-        console.log(req.body)
         //Guardando información del pago
         const guardarInformacionPago = await pagosService.guardarInformacionPago(req.body)
         
@@ -22,7 +21,6 @@ pagosController.guardarInformacionPago = async (req, res) => {
 
             //Creando constante para tener el correo del comprador
             const emailComprador = req.body.email_buyer
-            console.log('email comprador: ', emailComprador)
 
             const validarExistenciaUsuario = await usuarioService.buscarUsuarioPorCorreo(emailComprador)
 
@@ -60,9 +58,7 @@ pagosController.guardarInformacionPago = async (req, res) => {
                 const cancionesUsuario = await cancionesService.usuariosCanciones(canciones)
             }
             //Enviando correo
-            console.log("enviando correo")
             const x = await nodemailerService.correoConfirmacionPago(emailComprador, pass)
-            console.log(x)
             res.status(200).json('Proceso finalizado')
         } else {
             //Estado declinado
